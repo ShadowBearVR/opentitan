@@ -139,6 +139,9 @@ DIFS = {
             ":test_base",
             "@googletest//:gtest_main",
         ] + cfg.get("ut_deps", []),
+        copts = [
+        "-Wno-enum-constexpr-conversion",
+        ]
     )
     for (ip, cfg) in DIFS.items()
     if not cfg.get("no_ut", False)
