@@ -62,6 +62,7 @@ single_version_override(
     patch_strip = 1,
     patches = [
         "@lowrisc_opentitan//third_party/toolchains_llvm/patches:toolchains_llvm-distroname.patch",
+        "@lowrisc_opentitan//third_party/toolchains_llvm/patches:toolchains_llvm-export_libcxx.patch",
     ],
     version = "1.1.2",
 )
@@ -182,10 +183,10 @@ register_toolchains("//third_party/rust:bindgen_toolchain")
 llvm = use_extension("@toolchains_llvm//toolchain/extensions:llvm.bzl", "llvm")
 llvm.toolchain(
     name = "llvm_toolchain",
-    llvm_versions = {"": "10.0.0"},
-    sha256 = {"": "b25f592a0c00686f03e3b7db68ca6dc87418f681f4ead4df4745a01d9be63843"},
-    strip_prefix = {"": "clang+llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04"},
-    urls = {"": ["https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.0/clang+llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz"]},
+    llvm_versions = {"": "17.0.6"},
+    sha256 = {"": "884ee67d647d77e58740c1e645649e29ae9e8a6fe87c1376be0f3a30f3cc9ab3"},
+    strip_prefix = {"": "clang+llvm-17.0.6-x86_64-linux-gnu-ubuntu-22.04"},
+    urls = {"": ["https://github.com/llvm/llvm-project/releases/download/llvmorg-17.0.6/clang+llvm-17.0.6-x86_64-linux-gnu-ubuntu-22.04.tar.xz"]},
 )
 use_repo(llvm, "llvm_toolchain_llvm")
 
